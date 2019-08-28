@@ -40,6 +40,8 @@ if(${PYTHON}_LIMITED_API)
   endif()
 endif()
 
+target_compile_definitions(${the_module} PUBLIC ${OPENCV_PYTHON_EXTRA_DEFINITIONS})
+
 if(APPLE)
   set_target_properties(${the_module} PROPERTIES LINK_FLAGS "-undefined dynamic_lookup")
 elseif(WIN32 OR OPENCV_FORCE_PYTHON_LIBS)
