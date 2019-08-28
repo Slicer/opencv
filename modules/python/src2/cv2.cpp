@@ -14,7 +14,13 @@
 #endif
 
 #include <math.h>
+#if CV_RELEASE_PYTHON
+#undef _DEBUG
 #include <Python.h>
+#define _DEBUG
+#else
+#include <Python.h>
+#endif
 
 #if PY_MAJOR_VERSION < 3
 #undef CVPY_DYNAMIC_INIT
