@@ -15,11 +15,20 @@
 
 #include <math.h>
 #if CV_RELEASE_PYTHON
-#undef _DEBUG
-#include <Python.h>
-#define _DEBUG
+  #if defined(_DEBUG)
+    #define _WAS_DEBUG _DEBUG
+    #undef _DEBUG
+  #else
+    #undef _WAS_DEBUG
+  #endif
+
+  #include <Python.h>
+
+  #if defined(_WAS_DEBUG)
+    #define _DEBUG
+  #endif
 #else
-#include <Python.h>
+  #include <Python.h>
 #endif
 
 #if PY_MAJOR_VERSION < 3
