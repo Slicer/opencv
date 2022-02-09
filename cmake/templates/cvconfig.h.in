@@ -1,6 +1,9 @@
 #ifndef OPENCV_CVCONFIG_H_INCLUDED
 #define OPENCV_CVCONFIG_H_INCLUDED
 
+/* Python compiled as release or debug library */
+#cmakedefine CV_RELEASE_PYTHON
+
 /* OpenCV compiled as static or dynamic libs */
 #cmakedefine BUILD_SHARED_LIBS
 
